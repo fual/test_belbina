@@ -100,38 +100,13 @@ export default function ResultPage() {
         }
     }
 
-    const copyToClipboard = () => {
-
-        const el = document.createElement('textarea');
-        el.value = window.location.origin + '/';
-        el.setAttribute('readonly', '');
-        el.style.position = 'absolute';
-        el.style.left = '-9999px';
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);  
-        
-        setIsCopies(true);
-    }
-
 
         return (
             <>
-            {/* images bg */}
-            {/*<img 
-                src={topStripe}
-                alt=""
-                className={styleClasses.topStripe}
-            />
-            <img 
-                src={rightStripe}
-                alt=""
-                className={styleClasses.rightStripe}
-            />*/}
 
             <div className={styleClasses.main}>
                 <h1>Результат теста</h1>
+                
                 <div className={styleClasses.table}> 
                     <ul>
                         <li className={styleClasses.firstLi}>
@@ -261,34 +236,6 @@ export default function ResultPage() {
                         description={roles[smallest.category].description}
                     />
                 </div>
-                <p className={styleClasses.bottomPar}>
-                    Мы подготовили для тебя развернутое описание каждой роли!<br />
-                    Чтобы получить наш чек-лист, тебе нужно<br />
-                    оставить пару строк о себе
-                </p>
-                <div 
-                style={{
-                    width: '100%',
-                    marginTop: '40px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    <Form />
-                </div>
-                <div className={ styleClasses.shareButton }>
-					{/*<button onClick={ copyToClipboard }
-                    style = { isCopied ? { color: "#5850F1" } : {} }
-                    >
-                     <img src={ isCopied ? shareIconColored : shareIcon } className={ styleClasses.buttonIcon }
-                    />
-                        { isCopied ? "Скопировано" : "Поделиться тестом" }
-                    </button>*/}
-                </div>
-                <div className={styleClasses.belbinLabel}>
-                    <img src={BELBINLabel} style={{ transform: "rotate(-6deg)", paddingBottom: '0px' }} alt=""/>
-                    <img src={BELBINLabel} style={{ transform: "rotate(6deg)", paddingTop: '0px' }} alt=""/>
-                </div>
             </div>
         </>
         );
@@ -298,13 +245,6 @@ export default function ResultPage() {
 const Bold = styled.strong`
     font-weight: bold;
 `;
-
-// const Gradient1 = styled(Bold)`
-//     background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-//     text-transform: uppercase;
-// `;
 
 const Gradient2 = styled(Bold)`
     -webkit-background-clip: text;
