@@ -7,7 +7,7 @@ import styled from "styled-components";
 import useCustomSelector from "src/hooks/useCustomSelector";
 import { questionState } from 'src/store/rootSelector';
 
-import { roles, keys } from '../../text/roles';
+import { roles, keys, RolesName } from '../../text/roles';
 
 // images
 import topStripe from '../../assets/ResultPage/topStripe.svg';
@@ -52,7 +52,7 @@ export default function ResultPage() {
         const category = Object.keys(updatedRoles).filter(function(key) {return updatedRoles[key] === rate});
         for (let j = 0 ; j <= category.length; j++ ) {
             topRoles.push({
-                category: category[j],
+                category:category[j],
                 rate: rate
             });
             updatedRoles[category[i]] = -100;
@@ -162,16 +162,16 @@ export default function ResultPage() {
                                     <div className={styleClasses.firstColumn}>
                                         {role.category === mainValue.category &&
                                         (<Gradient2>
-                                            <p>{role.category}</p>
+                                            <p>{ RolesName[role.category]}</p>
                                         </Gradient2>)
                                         }
                                         {role.category === supportedValue.category &&
                                         (<Gradient2>
-                                            <p>{role.category}</p>
+                                            <p>{ RolesName[role.category]}</p>
                                         </Gradient2>)
                                         }
                                         {role.category !== supportedValue.category && role.category !== mainValue.category && 
-                                        <p>{role.category}</p>
+                                        <p>{RolesName[role.category]}</p>
                                         }
                                     </div>
                                     <div className={styleClasses.secondColumn}>
@@ -222,7 +222,7 @@ export default function ResultPage() {
                     <RoleBlock 
                         src={roles[mainValue.category].image}
                         roleClass={'first'}
-                        name={mainValue.category}
+                        name={ RolesName[mainValue.category]}
                         haracteristic={roles[mainValue.category].haracteristic}
                         weakness={roles[mainValue.category].weakness}
                         functionality={roles[mainValue.category].functionality}
@@ -231,7 +231,7 @@ export default function ResultPage() {
                     <RoleBlock 
                         src={roles[supportedValue.category].image}
                         roleClass={'second'}
-                        name={supportedValue.category}
+                        name={ RolesName[supportedValue.category]}
                         haracteristic={roles[supportedValue.category].haracteristic}
                         weakness={roles[supportedValue.category].weakness}
                         functionality={roles[supportedValue.category].functionality}
@@ -254,7 +254,7 @@ export default function ResultPage() {
                     <RoleBlock 
                         src={roles[smallest.category].image}
                         roleClass={'third'}
-                        name={smallest.category}
+                        name={ RolesName[smallest.category]}
                         haracteristic={roles[smallest.category].haracteristic}
                         weakness={roles[smallest.category].weakness}
                         functionality={roles[smallest.category].functionality}
